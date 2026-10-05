@@ -16,11 +16,23 @@ Este README é um guia amplo para qualquer pessoa que precise configurar, execut
 
 Antes de criar qualquer recurso, confirme que a assinatura Azure está com estado `Enabled`. Se estiver `Disabled`, interrompa a criação até a assinatura ser reativada ou substituída por uma assinatura autorizada.
 
-- GitHub: inserir aqui o link do novo repositório após publicação.
+- GitHub: https://github.com/marcusvilanova/checkPoint_05_Devops
 - Aplicação Azure: inserir aqui a URL obtida após implantação.
 - Vídeo: inserir aqui o link acessível ao professor após a gravação.
 
 Os JSONs de GET/POST/PUT/DELETE são condicionais à entrega de uma API. Esta implementação usa exclusivamente páginas MVC e formulários; esse artefato não se aplica ao projeto atual.
+
+## Integrantes
+
+| Nome completo | RM |
+| --- | --- |
+| Bruno Ferreira | 563489 |
+| Gabriel Robertoni Padilha | 566293 |
+| Hebert Lopes do Santos | 563192 |
+| Marcus Vinícius Vila Nova da Silva | 558771 |
+| Nicolas Monteiro Ramiro | 562380 |
+
+O nome do grupo deve ser definido antes da criação do PDF final.
 
 ## Solução e regras
 
@@ -67,6 +79,7 @@ scripts/ddl.sql                 Tabelas, relacionamento e índice
 scripts/consultas-evidencias.sql Consultas para demonstrar persistência
 docs/arquitetura.png             Desenho macro
 docs/roteiro-video.md           Sequência completa das evidências
+docs/relatorio-conferencia-cp5.md Conferência do enunciado e das penalidades
 docs/integrantes.md             Nomes completos e RMs da equipe
 ```
 
@@ -188,40 +201,25 @@ O deploy usa `az webapp deploy --type jar`, conforme a Aula 13. A URL é obtida 
 
 Se houver falha, consulte o diagnóstico do App Service e os logs. Não prossiga para a gravação de CRUD enquanto o aplicativo estiver indisponível. Erros de firewall, credencial e esquema precisam ser resolvidos no banco/configuração, sem desativar a validação do JPA.
 
-### 7. Demonstrar CRUD e persistência das duas tabelas
+### 7. Validar a aplicação e a persistência
 
-Abra a aplicação pela **URL Azure** e mantenha aberta a conexão ao **Azure SQL**. Use [o roteiro do vídeo](docs/roteiro-video.md) e `scripts/consultas-evidencias.sql`.
+Abra a aplicação pela URL pública do Azure App Service. As páginas principais são `/`, `/clientes` e `/atendimentos`; os formulários permitem criar, consultar, editar e excluir os dois tipos de registro.
 
-| Ordem | Operação no frontend | Prova no banco imediatamente após |
-| --- | --- | --- |
-| 1 | Cadastrar cliente fictício | SELECT de clientes mostra o novo ID e dados |
-| 2 | Listar e abrir detalhe do cliente | SELECT confirma os mesmos dados |
-| 3 | Editar nome/telefone do cliente | SELECT mostra os valores alterados |
-| 4 | Cadastrar atendimento desse cliente | SELECT de atendimentos e JOIN mostram a FK |
-| 5 | Listar e abrir detalhe do atendimento | SELECT confirma o atendimento persistido |
-| 6 | Editar assunto/status do atendimento | SELECT mostra os novos valores |
-| 7 | Excluir atendimento | SELECT pelo ID não retorna registro |
-| 8 | Excluir cliente | SELECT pelo ID não retorna registro |
+Use `scripts/consultas-evidencias.sql` para consultar o banco depois das operações. A consulta deve confirmar os dados persistidos nas duas tabelas, a relação por `cliente_id` e a remoção dos registros excluídos. A chave estrangeira exige que os atendimentos sejam removidos antes do cliente relacionado.
 
-Essa ordem permite excluir o filho antes do pai. Adicionalmente, tente excluir um cliente enquanto ele ainda tem atendimento e mostre o bloqueio: a relação deve ser preservada.
+Para a avaliação, todas as operações CRUD devem ser executadas pelo frontend publicado e conferidas no Azure SQL. A sequência detalhada de demonstração e gravação fica no material operacional separado da equipe.
 
-Não basta demonstrar apenas as telas, apenas o cadastro, ou apenas um SELECT no fim. O professor pede a consulta ao banco depois de cada operação CRUD, para ambas as tabelas.
+### 8. Validar o monitoramento
 
-### 8. Demonstrar as coletas do monitoramento
+Abra o recurso Application Insights associado ao Web App e selecione um intervalo que inclua as requisições realizadas. Confirme a existência de requisições do aplicativo e de dependências SQL associadas às transações.
 
-Após executar os CRUDs, abra **Application Insights** no portal. Mostre requisições coletadas e suas durações em Performance/Transaction Search. Abra uma operação que acessa o banco e mostre a dependência SQL na transação, associada ao Azure SQL da solução. Application Map também ajuda a mostrar a relação do aplicativo com o banco.
+As coletas podem levar alguns minutos. Gere novas requisições no aplicativo e atualize o intervalo quando necessário. A existência do recurso, sem dados coletados, não comprova o monitoramento.
 
-As coletas podem levar alguns minutos para aparecer. Ajuste o intervalo de tempo do portal para incluir a demonstração e gere novas consultas/alterações no app se necessário. Um dashboard vazio ou apenas o vínculo configurado não comprova o monitoramento.
+### 9. Artefatos de entrega
 
-No Azure SQL, mostre também os dados após as operações e as métricas disponíveis. A evidência das chamadas JDBC ao banco deve aparecer no Application Insights. O agente monitora chamadas feitas pela aplicação; ele não transforma consultas avulsas do SSMS em requisições do aplicativo.
+O GitHub deve conter o fonte, os scripts, o DDL, o desenho da arquitetura e este How to. Complete no início deste arquivo os links da aplicação Azure e do vídeo quando a implantação e a gravação estiverem concluídas.
 
-### 9. Publicar evidências e entregar o PDF
-
-Publique o código, os scripts, o DDL, o desenho e este README no novo GitHub. Complete os três links no início deste arquivo. Grave o tutorial inteiro, incluindo criação, deploy, oito operações com suas consultas SQL e coletas do Insights. O vídeo deve ter pelo menos 720p e explicação falada.
-
-Teste acesso ao repositório e ao vídeo usando uma janela sem login ou conceda acesso ao professor. Use os dados de [integrantes.md](docs/integrantes.md) e defina o nome do grupo. O arquivo final deve ser `<nome_grupo>_webapp.pdf` e conter **somente** nome do grupo, nomes completos/RMs e links GitHub/vídeo.
-
-Somente o representante envia esse PDF ao Teams. Código, DDL, scripts e tutorial ficam no GitHub; não envie ZIP, TXT ou repositório anexado ao Teams.
+O PDF final deve seguir a nomenclatura `<nome_grupo>_webapp.pdf` e conter somente nome do grupo, nomes completos/RMs e links do GitHub e do vídeo. O representante deve enviar somente esse PDF no Teams; não envie ZIP, TXT ou o repositório de código como anexo.
 
 ## Verificação antes da entrega
 
