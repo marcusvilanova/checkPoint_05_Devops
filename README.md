@@ -97,7 +97,7 @@ Execute os scripts na ordem abaixo. Os scripts Bash devem ser rodados no Azure C
 | 5 | `05-verificar-recursos.sh` | Bash | estado e hostname dos recursos, sem exibir segredos |
 | apoio | `consultas-evidencias.sql` | SQL | consultas para provar o banco, o relacionamento e as exclusões |
 
-O procedimento detalhado de implantação está nas seções seguintes. O arquivo [docs/roteiro-video.md](docs/roteiro-video.md) reúne as evidências que precisam ser apresentadas durante a demonstração.
+O procedimento de implantação está nas seções seguintes. A demonstração deve usar dados fictícios e manter credenciais fora do código, dos terminais e das gravações.
 
 ## Tutorial completo de implantação
 
@@ -241,7 +241,7 @@ Marque os itens somente após conferir sua execução e respectivas evidências.
 | Aplicação Java na nuvem | `pom.xml`, `src/`, runtime Java 17 e JAR publicado no App Service |
 | Banco Azure SQL obrigatório | `scripts/01-criar-recursos.sh`, `scripts/02-aplicar-ddl.ps1` e `scripts/ddl.sql` |
 | Relacionamento entre tabelas | FK `FK_atendimentos_clientes`, índice por `cliente_id` e tela de detalhe do cliente |
-| CRUD completo | formulários MVC em `src/main/resources/templates/` e sequência de oito operações no manual |
+| CRUD completo | formulários MVC em `src/main/resources/templates/`, controllers, services e consultas de evidência |
 | Monitoramento | `scripts/03-configurar-aplicacao.sh`, agente Java e consultas no Application Insights |
 | Reprodutibilidade | configuração sem credenciais, scripts idempotentes e deploy por Azure CLI |
 | Evidência para avaliação | vídeo narrado, consultas SQL após cada operação e PDF com links definitivos |
