@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Detalhes do atendimento')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container">
+    <a class="voltar" th:href="@{/atendimentos}">← Atendimentos</a>
+    <div class="titulo-acoes">
+        <div><p class="sobretitulo" th:text="'Atendimento #' + ${atendimento.id}"></p><h1 th:text="${atendimento.assunto}"></h1></div>
+        <a class="botao" th:href="@{/atendimentos/{id}/editar(id=${atendimento.id})}">Editar atendimento</a>
+    </div>
+    <div th:replace="~{fragments/layout :: mensagens}"></div>
+    <dl class="detalhes">
+        <dt>Cliente</dt><dd><a th:href="@{/clientes/{id}(id=${atendimento.cliente.id})}" th:text="${atendimento.cliente.nome}"></a></dd>
+        <dt>Situação</dt><dd><span class="situacao" th:text="${atendimento.status.descricao}"></span></dd>
+        <dt>Data de abertura</dt><dd><time th:text="${#temporals.format(atendimento.dataAbertura, 'dd/MM/yyyy')}" th:datetime="${atendimento.dataAbertura}"></time></dd>
+        <dt>Descrição</dt><dd class="texto-longo" th:text="${atendimento.descricao}"></dd>
+    </dl>
+    <section class="exclusao">
+        <h2>Excluir atendimento</h2>
+        <p>A exclusão remove permanentemente este registro de atendimento.</p>
+        <form th:action="@{/atendimentos/{id}/excluir(id=${atendimento.id})}" method="post">
+            <button class="perigo" type="submit">Excluir este atendimento</button>
+        </form>
+    </section>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

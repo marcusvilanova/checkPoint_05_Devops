@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Detalhes do cliente')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container">
+    <a class="voltar" th:href="@{/clientes}">← Clientes</a>
+    <div class="titulo-acoes">
+        <div><p class="sobretitulo" th:text="'Cliente #' + ${cliente.id}"></p><h1 th:text="${cliente.nome}"></h1></div>
+        <a class="botao" th:href="@{/clientes/{id}/editar(id=${cliente.id})}">Editar cliente</a>
+    </div>
+    <div th:replace="~{fragments/layout :: mensagens}"></div>
+    <dl class="detalhes">
+        <dt>E-mail</dt><dd th:text="${cliente.email}"></dd>
+        <dt>Telefone</dt><dd th:text="${#strings.isEmpty(cliente.telefone) ? 'Não informado' : cliente.telefone}"></dd>
+    </dl>
+    <section class="secao">
+        <h2>Atendimentos deste cliente</h2>
+        <p th:if="${#lists.isEmpty(atendimentos)}">Este cliente ainda não possui atendimentos.</p>
+        <ul class="lista-registros" th:unless="${#lists.isEmpty(atendimentos)}">
+            <li th:each="atendimento : ${atendimentos}">
+                <a th:href="@{/atendimentos/{id}(id=${atendimento.id})}" th:text="${atendimento.assunto}"></a>
+                <span th:text="${atendimento.status.descricao}"></span>
+                <time th:text="${#temporals.format(atendimento.dataAbertura, 'dd/MM/yyyy')}"
+                      th:datetime="${atendimento.dataAbertura}"></time>
+            </li>
+        </ul>
+        <a th:href="@{/atendimentos/novo}">Registrar atendimento</a>
+    </section>
+    <section class="exclusao">
+        <h2>Excluir cliente</h2>
+        <p>A exclusão remove o cadastro. Clientes com atendimentos precisam ter seus atendimentos excluídos primeiro.</p>
+        <form th:action="@{/clientes/{id}/excluir(id=${cliente.id})}" method="post">
+            <button class="perigo" type="submit">Excluir este cliente</button>
+        </form>
+    </section>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

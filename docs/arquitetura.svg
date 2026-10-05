@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040"><rect width="1800" height="1040" fill="#f4f7fb"/>
+<text x="65" y="82" font-family="Segoe UI,Arial,sans-serif" font-size="42" font-weight="700" fill="#203149">DimDim Atendimento</text>
+<text x="67" y="127" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#203149">Arquitetura macro | Java MVC + Web App + Azure SQL + Application Insights</text>
+<rect x="510" y="172" width="1210" height="665" rx="16" fill="#edf5ff" stroke="#8fbae8" stroke-width="3"/>
+<text x="538" y="217" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#1462ad">Microsoft Azure | Grupo de recursos do CP5</text>
+<rect x="565" y="258" width="620" height="296" rx="16" fill="#d9eafa" stroke="#8fbae8" stroke-width="2"/>
+<text x="592" y="306" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">App Service Plan | Linux F1</text>
+<rect x="590" y="332" width="570" height="194" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="618" y="375" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Azure App Service | Java 17</text>
+<text x="618" y="417" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">JAR Spring Boot 3.3.4 / Spring MVC</text>
+<text x="618" y="454" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Frontend Thymeleaf + regras + JPA</text>
+<text x="618" y="491" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">CRUD de clientes e atendimentos</text>
+<rect x="70" y="332" width="300" height="164" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="96" y="380" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Usuário / navegador</text>
+<text x="96" y="426" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Páginas e formulários</text>
+<text x="96" y="460" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">da aplicação DimDim</text>
+<polyline points="371,411 586,411" fill="none" stroke="#246cc6" stroke-width="4"/>
+<polygon points="586,411 571.5928463623571,417.9594485457797 571.5928463623571,404.0405514542203" fill="#246cc6"/>
+<text x="402" y="388" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#1462ad">HTTPS</text>
+<rect x="1265" y="322" width="400" height="211" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="1290" y="368" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Application Insights</text>
+<text x="1290" y="415" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Requisições e falhas do app</text>
+<text x="1290" y="451" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Dependências JDBC / SQL</text>
+<text x="1290" y="487" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Agente Java do App Service</text>
+<polyline points="1186,424 1260,424" fill="none" stroke="#00896e" stroke-width="4"/>
+<polygon points="1260,424 1245.5928463623572,430.9594485457797 1245.5928463623572,417.0405514542203" fill="#00896e"/>
+<text x="1189" y="393" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#00896e">Coletas</text>
+<rect x="1265" y="641" width="400" height="128" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="1290" y="687" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Workspace associado</text>
+<text x="1290" y="730" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Logs do Application Insights</text>
+<polyline points="1463,536 1463,636" fill="none" stroke="#00896e" stroke-width="4"/>
+<polygon points="1463,636 1456.0405514542203,621.5928463623571 1469.9594485457797,621.5928463623571" fill="#00896e"/>
+<rect x="590" y="650" width="595" height="146" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="615" y="693" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Azure SQL Server lógico</text>
+<text x="615" y="733" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Azure SQL Database | Basic | PaaS</text>
+<text x="615" y="774" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">clientes (PK)  1 : N  atendimentos (FK)</text>
+<polyline points="880,555 880,644" fill="none" stroke="#246cc6" stroke-width="4"/>
+<polygon points="880,644 873.0405514542203,629.5928463623571 886.9594485457797,629.5928463623571" fill="#246cc6"/>
+<text x="903" y="600" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#1462ad">JDBC / TLS</text>
+<rect x="70" y="593" width="300" height="139" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="95" y="637" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">GitHub</text>
+<text x="95" y="679" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Fonte + DDL + scripts</text>
+<text x="95" y="713" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">README + evidências</text>
+<rect x="70" y="807" width="300" height="121" rx="16" fill="#ffffff" stroke="#ced8e4" stroke-width="2"/>
+<text x="94" y="850" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="700" fill="#203149">Maven + Azure CLI</text>
+<text x="94" y="889" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" fill="#203149">Build e deploy do JAR</text>
+<polyline points="220,736 220,802" fill="none" stroke="#7461a6" stroke-width="3" stroke-dasharray="11 8"/>
+<polygon points="220,802 213.04055145422032,787.5928463623571 226.95944854577968,787.5928463623571" fill="#7461a6"/>
+<polyline points="375,866 451,866 451,559 590,559" fill="none" stroke="#7461a6" stroke-width="3" stroke-dasharray="11 8"/>
+<polygon points="590,559 575.5928463623571,565.9594485457797 575.5928463623571,552.0405514542203" fill="#7461a6"/>
+<text x="528" y="884" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#7461a6">Implantação: az webapp deploy --type jar</text>
+<text x="65" y="998" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#203149">Conexões do app: azul   |   Monitoramento: verde   |   Publicação: roxo tracejado</text>
+</svg>

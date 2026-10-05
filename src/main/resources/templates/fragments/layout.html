@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titulo} + ' | DimDim Atendimento'">DimDim Atendimento</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<header th:fragment="cabecalho" class="cabecalho">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <div class="cabecalho-conteudo">
+        <a class="marca" th:href="@{/}">DimDim <span>Atendimento</span></a>
+        <nav aria-label="Navegação principal">
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/clientes}">Clientes</a>
+            <a th:href="@{/atendimentos}">Atendimentos</a>
+        </nav>
+    </div>
+</header>
+<div th:fragment="mensagens">
+    <p th:if="${mensagem}" th:text="${mensagem}" class="aviso sucesso" role="status"></p>
+    <p th:if="${erro}" th:text="${erro}" class="aviso falha" role="alert"></p>
+</div>
+<footer th:fragment="rodape" class="rodape">
+    <p>DimDim Atendimento · Organização do relacionamento com clientes</p>
+</footer>
+</body>
+</html>

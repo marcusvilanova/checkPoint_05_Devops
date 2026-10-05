@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Atendimentos')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container">
+    <div class="titulo-acoes">
+        <div><p class="sobretitulo">Acompanhamento</p><h1>Atendimentos</h1></div>
+        <a class="botao" th:href="@{/atendimentos/novo}">Registrar atendimento</a>
+    </div>
+    <div th:replace="~{fragments/layout :: mensagens}"></div>
+    <p class="vazio" th:if="${#lists.isEmpty(atendimentos)}">Nenhum atendimento registrado. Cadastre um cliente e registre sua solicitação.</p>
+    <div class="tabela-container" th:unless="${#lists.isEmpty(atendimentos)}">
+        <table>
+            <caption class="visualmente-oculto">Atendimentos registrados na DimDim</caption>
+            <thead><tr><th scope="col">ID</th><th scope="col">Assunto</th><th scope="col">Cliente</th><th scope="col">Situação</th><th scope="col">Abertura</th><th scope="col">Ações</th></tr></thead>
+            <tbody>
+            <tr th:each="atendimento : ${atendimentos}">
+                <td th:text="${atendimento.id}"></td>
+                <th scope="row"><a th:href="@{/atendimentos/{id}(id=${atendimento.id})}" th:text="${atendimento.assunto}"></a></th>
+                <td><a th:href="@{/clientes/{id}(id=${atendimento.cliente.id})}" th:text="${atendimento.cliente.nome}"></a></td>
+                <td><span class="situacao" th:text="${atendimento.status.descricao}"></span></td>
+                <td><time th:text="${#temporals.format(atendimento.dataAbertura, 'dd/MM/yyyy')}" th:datetime="${atendimento.dataAbertura}"></time></td>
+                <td class="acoes">
+                    <a th:href="@{/atendimentos/{id}(id=${atendimento.id})}" th:aria-label="'Ver atendimento ' + ${atendimento.id}">Detalhes</a>
+                    <a th:href="@{/atendimentos/{id}/editar(id=${atendimento.id})}" th:aria-label="'Editar atendimento ' + ${atendimento.id}">Editar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

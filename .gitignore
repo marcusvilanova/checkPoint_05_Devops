@@ -1,0 +1,31 @@
+# Referencias, notas e caches locais
+referencias/
+tmp/
+.tools/
+.m2-local/
+
+# Compilacao e IDEs
+target/
+.idea/
+.vscode/
+*.iml
+*.log
+.classpath
+.project
+.settings/
+
+# Configuracao privada e credenciais
+.env
+.env.*
+!.env.example
+scripts/config.local.sh
+*.publishsettings
+*.publishprofile
+*.pem
+*.key
+
+# Videos e artefatos finais ficam fora do repositorio de codigo
+output/
+*.mp4
+*.m4a
+*.zip

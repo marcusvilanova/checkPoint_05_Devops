@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${titulo})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container formulario-container">
+    <p class="sobretitulo" th:text="'Erro ' + ${codigo}"></p>
+    <h1 th:text="${titulo}">Não foi possível concluir a operação</h1>
+    <p th:text="${descricao}">Tente novamente em alguns instantes.</p>
+    <a class="botao" th:href="@{/}">Voltar ao início</a>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

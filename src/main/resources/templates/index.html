@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Início')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container">
+    <section class="abertura">
+        <p class="sobretitulo">Relacionamento com clientes</p>
+        <h1>Cada solicitação merece acompanhamento.</h1>
+        <p>Cadastre os clientes da DimDim e registre os atendimentos, da abertura à conclusão.</p>
+    </section>
+    <div class="cartoes">
+        <section class="cartao">
+            <h2>Clientes</h2>
+            <p class="numero" th:text="${totalClientes}">0</p>
+            <p>Mantenha os contatos disponíveis para o atendimento.</p>
+            <a class="botao" th:href="@{/clientes}">Gerenciar clientes</a>
+            <a class="link-acao" th:href="@{/clientes/novo}">Cadastrar cliente</a>
+        </section>
+        <section class="cartao">
+            <h2>Atendimentos</h2>
+            <p class="numero" th:text="${totalAtendimentos}">0</p>
+            <p>Acompanhe os assuntos e a situação de cada solicitação.</p>
+            <a class="botao" th:href="@{/atendimentos}">Gerenciar atendimentos</a>
+            <a class="link-acao" th:href="@{/atendimentos/novo}">Registrar atendimento</a>
+        </section>
+    </div>
+    <section class="orientacao">
+        <h2>Como começar</h2>
+        <ol>
+            <li>Cadastre o nome e os contatos do cliente.</li>
+            <li>Registre um atendimento e selecione o cliente responsável pela solicitação.</li>
+            <li>Atualize a situação conforme a equipe acompanha o caso.</li>
+        </ol>
+    </section>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

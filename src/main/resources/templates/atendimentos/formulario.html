@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${titulo})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container formulario-container">
+    <a class="voltar" th:href="@{/atendimentos}">← Atendimentos</a>
+    <h1 th:text="${titulo}">Registrar atendimento</h1>
+    <p>Todos os campos são obrigatórios.</p>
+    <p class="aviso" th:if="${#lists.isEmpty(clientes)}">Cadastre um <a th:href="@{/clientes/novo}">cliente</a> antes de salvar um atendimento.</p>
+    <form th:action="${registroId == null} ? @{/atendimentos} : @{/atendimentos/{id}(id=${registroId})}"
+          th:object="${atendimento}" method="post" class="formulario">
+        <div th:if="${#fields.hasAnyErrors()}" class="aviso falha" role="alert">
+            <p>Revise os campos indicados e tente salvar novamente.</p>
+            <ul th:if="${#fields.hasGlobalErrors()}"><li th:each="erro : ${#fields.globalErrors()}" th:text="${erro}"></li></ul>
+        </div>
+        <div class="campo">
+            <label for="clienteId">Cliente *</label>
+            <select id="clienteId" th:field="*{clienteId}" required
+                    th:attr="aria-invalid=${#fields.hasErrors('clienteId')}" aria-describedby="cliente-erro">
+                <option value="">Selecione um cliente</option>
+                <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome} + ' (#' + ${cliente.id} + ')' "></option>
+            </select>
+            <p id="cliente-erro" class="erro-campo" th:errors="*{clienteId}"></p>
+        </div>
+        <div class="campo">
+            <label for="assunto">Assunto *</label>
+            <input id="assunto" type="text" th:field="*{assunto}" maxlength="150" required
+                   th:attr="aria-invalid=${#fields.hasErrors('assunto')}" aria-describedby="assunto-erro">
+            <p id="assunto-erro" class="erro-campo" th:errors="*{assunto}"></p>
+        </div>
+        <div class="campo">
+            <label for="descricao">Descrição da solicitação *</label>
+            <textarea id="descricao" th:field="*{descricao}" maxlength="1000" rows="5" required
+                      th:attr="aria-invalid=${#fields.hasErrors('descricao')}" aria-describedby="descricao-ajuda descricao-erro"></textarea>
+            <p id="descricao-ajuda" class="ajuda">Descreva o que o cliente precisa e as informações relevantes para a equipe. Até 1.000 caracteres.</p>
+            <p id="descricao-erro" class="erro-campo" th:errors="*{descricao}"></p>
+        </div>
+        <div class="duas-colunas">
+            <div class="campo">
+                <label for="status">Situação *</label>
+                <select id="status" th:field="*{status}" required
+                        th:attr="aria-invalid=${#fields.hasErrors('status')}" aria-describedby="status-erro">
+                    <option th:each="situacao : ${situacoes}" th:value="${situacao}" th:text="${situacao.descricao}"></option>
+                </select>
+                <p id="status-erro" class="erro-campo" th:errors="*{status}"></p>
+            </div>
+            <div class="campo">
+                <label for="dataAbertura">Data de abertura *</label>
+                <input id="dataAbertura" type="date" th:field="*{dataAbertura}" required
+                       th:attr="aria-invalid=${#fields.hasErrors('dataAbertura')}" aria-describedby="data-erro">
+                <p id="data-erro" class="erro-campo" th:errors="*{dataAbertura}"></p>
+            </div>
+        </div>
+        <div class="botoes">
+            <button type="submit" th:disabled="${#lists.isEmpty(clientes)}">Salvar atendimento</button>
+            <a class="botao secundario" th:href="${registroId == null} ? @{/atendimentos} : @{/atendimentos/{id}(id=${registroId})}">Cancelar</a>
+        </div>
+    </form>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>

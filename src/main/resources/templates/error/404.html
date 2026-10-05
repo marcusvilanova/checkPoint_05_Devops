@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Página não encontrada')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: cabecalho}"></header>
+<main id="conteudo" class="container formulario-container">
+    <p class="sobretitulo">Erro 404</p>
+    <h1>Página não encontrada</h1>
+    <p>Confira o endereço solicitado ou use a navegação para continuar.</p>
+    <a class="botao" th:href="@{/}">Voltar ao início</a>
+</main>
+<footer th:replace="~{fragments/layout :: rodape}"></footer>
+</body>
+</html>
