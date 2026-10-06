@@ -4,7 +4,7 @@ Aplicação web Java para organizar o cadastro de clientes e os atendimentos da 
 
 ## Situação da implantação
 
-O deploy no Azure App Service e a persistência no Azure SQL ainda precisam ser executados e demonstrados. A gravação do vídeo e o PDF final dependem dessa implantação e dos links definitivos.
+A solução está implantada no Azure App Service, integrada ao Azure SQL e monitorada pelo Application Insights. O CRUD das duas tabelas relacionadas foi validado na nuvem.
 
 O build local passou com `mvn clean verify`: 28 testes sem falhas e JAR gerado. Os testes locais não comprovam persistência no Azure SQL nem coleta de telemetria no Application Insights.
 
@@ -17,7 +17,7 @@ Este README é um guia amplo para qualquer pessoa que precise configurar, execut
 Antes de criar qualquer recurso, confirme que a assinatura Azure está com estado `Enabled`. Se estiver `Disabled`, interrompa a criação até a assinatura ser reativada ou substituída por uma assinatura autorizada.
 
 - GitHub: https://github.com/marcusvilanova/checkPoint_05_Devops
-- Aplicação Azure: inserir aqui a URL obtida após implantação.
+- Aplicação Azure: https://dimdim-atendimento-rm558771.azurewebsites.net
 - Vídeo: inserir aqui o link acessível ao professor após a gravação.
 
 Os JSONs de GET/POST/PUT/DELETE são condicionais à entrega de uma API. Esta implementação usa exclusivamente páginas MVC e formulários; esse artefato não se aplica ao projeto atual.
@@ -108,8 +108,8 @@ Use a assinatura Azure da turma, com permissão para criar recursos e uma regiã
 Na máquina que compila o projeto: Git, JDK 17 e Maven. No Azure Cloud Shell: Bash com Azure CLI e PowerShell com o módulo `SqlServer`, para `Invoke-Sqlcmd`, como na Aula 15. Também é possível executar Azure CLI e os mesmos scripts em uma máquina com essas ferramentas.
 
 ```bash
-git clone URL_DO_NOVO_REPOSITORIO
-cd NOME_DA_PASTA_CLONADA
+git clone https://github.com/marcusvilanova/checkPoint_05_Devops.git
+cd checkPoint_05_Devops
 java -version
 mvn -version
 mvn clean verify

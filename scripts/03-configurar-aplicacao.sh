@@ -43,8 +43,6 @@ if ! az webapp config appsettings set --name "$WEBAPP_NAME" --resource-group "$R
 fi
 unset SQL_ADMIN_USER SQL_ADMIN_PASSWORD CONNECTION_STRING
 
-# Conexao nativa apresentada na aula 14, sem SDK de telemetria na aplicacao.
-az monitor app-insights component connect-webapp --app "$APP_INSIGHTS_NAME" --web-app "$WEBAPP_NAME" \
-  --resource-group "$RESOURCE_GROUP_NAME" --output none --only-show-errors
+# A connection string e o agente ~3 configurados acima integram o Web App ao Application Insights.
 az webapp restart --name "$WEBAPP_NAME" --resource-group "$RESOURCE_GROUP_NAME" --output none --only-show-errors
 echo "Configuracao concluida. Execute o script 04 para compilar e publicar o JAR."

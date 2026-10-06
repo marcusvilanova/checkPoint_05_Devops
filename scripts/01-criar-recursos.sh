@@ -45,8 +45,8 @@ if [[ -z "$existing_plan" ]]; then
     --location "$LOCATION" --sku F1 --is-linux --output none --only-show-errors
 fi
 plan_sku="$(az appservice plan show --name "$APP_SERVICE_PLAN" --resource-group "$RESOURCE_GROUP_NAME" --query sku.name --output tsv --only-show-errors)"
-plan_linux="$(az appservice plan show --name "$APP_SERVICE_PLAN" --resource-group "$RESOURCE_GROUP_NAME" --query reserved --output tsv --only-show-errors)"
-[[ "$plan_sku" == "F1" && "$plan_linux" == "true" ]] || { echo "O plano existente deve ser Linux F1. Nenhuma alteracao de plano foi feita." >&2; exit 1; }
+plan_kind="$(az appservice plan show --name "$APP_SERVICE_PLAN" --resource-group "$RESOURCE_GROUP_NAME" --query kind --output tsv --only-show-errors)"
+[[ "$plan_sku" == "F1" && "$plan_kind" == *"linux"* ]] || { echo "O plano existente deve ser Linux F1. Nenhuma alteracao de plano foi feita." >&2; exit 1; }
 
 existing_webapp="$(az webapp list --resource-group "$RESOURCE_GROUP_NAME" --query "[?name=='${WEBAPP_NAME}'].name | [0]" --output tsv --only-show-errors)"
 if [[ -z "$existing_webapp" ]]; then
