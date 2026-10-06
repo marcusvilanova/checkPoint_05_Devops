@@ -18,7 +18,7 @@ Antes de criar qualquer recurso, confirme que a assinatura Azure está com estad
 
 - GitHub: https://github.com/marcusvilanova/checkPoint_05_Devops
 - Aplicação Azure: https://dimdim-atendimento-rm558771.azurewebsites.net
-- Vídeo: inserir aqui o link acessível ao professor após a gravação.
+- Vídeo: 
 
 Os JSONs de GET/POST/PUT/DELETE são condicionais à entrega de uma API. Esta implementação usa exclusivamente páginas MVC e formulários; esse artefato não se aplica ao projeto atual.
 
@@ -32,7 +32,6 @@ Os JSONs de GET/POST/PUT/DELETE são condicionais à entrega de uma API. Esta im
 | Marcus Vinícius Vila Nova da Silva | 558771 |
 | Nicolas Monteiro Ramiro | 562380 |
 
-O nome do grupo deve ser definido antes da criação do PDF final.
 
 ## Solução e regras
 
@@ -245,12 +244,3 @@ Marque os itens somente após conferir sua execução e respectivas evidências.
 | Monitoramento | `scripts/03-configurar-aplicacao.sh`, agente Java e consultas no Application Insights |
 | Reprodutibilidade | configuração sem credenciais, scripts idempotentes e deploy por Azure CLI |
 | Evidência para avaliação | vídeo narrado, consultas SQL após cada operação e PDF com links definitivos |
-
-## Referências de implementação
-
-As aulas fornecidas são a referência principal. As páginas oficiais abaixo servem para conferir a sintaxe atual dos mesmos serviços:
-
-- [Exemplo MVC citado pelo professor na Aula 14](https://github.com/profjoaomenk/playmix-mvc) - referência de stack, sem copiar o domínio.
-- [Azure CLI: Web App deploy](https://learn.microsoft.com/en-us/cli/azure/webapp#az-webapp-deploy).
-- [Application Insights no App Service Java](https://learn.microsoft.com/en-us/azure/app-service/monitor-app-service).
-- [Azure CLI: Application Insights component](https://learn.microsoft.com/en-us/cli/azure/monitor/app-insights/component).
